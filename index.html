@@ -1,0 +1,64 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+
+	<meta charset="utf-8">
+
+	<title>Honk: The simple javascript alert replacement</title>
+	<meta name="description" content="Honk: The simple javascript alert replacement">
+	<meta name="author" content="Noah Mormino">
+	<link rel="stylesheet" href="css/normalize.css" />
+	<link rel="stylesheet" href="css/skeleton.css" />
+	<link rel="stylesheet" href="lib/styles/honk.css" />
+	<style>
+		pre {
+			font-size:12px;
+		}
+	</style>
+</head>
+
+<body>
+
+<div class="container">
+	<H1>HONK</H1>
+	<p>Honk is designed to replace native javascript alert and confirm dialogs. Callbacks are supported on both alerts and confirms. jQuery is required. SaSS files are included and utilize Bourbon.io, but the compiled css file could be used as well. Honk is released under the MIT license.</p>
+
+	<div class="row">
+		<div class="six columns">
+			<h4>Alerts</h4>
+			<button class="button-primary" id="alert">Alert</button>
+
+<pre>
+honk.alert('Your message goes here!', function(){
+	//Alerts &amp; Confirms support callbacks if needed.
+});
+</pre>
+		</div>
+		<div class="six columns">
+			<h4>Confirms</h4>
+			<button class="button-primary" id="confirm">Confirm</button>
+
+<pre>
+honk.confirm('Your message goes here!', function(){
+	//Alerts &amp; Confirms support callbacks.
+});
+</pre>
+		</div>
+</div>
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+  	<script src="lib/honk.js"></script>
+  	<script>
+		$('#alert').click(function(){
+			honk.alert('This is an alert!');
+		});
+
+		$('#confirm').click(function(){
+			honk.confirm('This is a confirm!', function(){
+				honk.alert('You confirmed!');
+			});
+		});
+  	</script>
+</body>
+</html>
