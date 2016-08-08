@@ -1,0 +1,79 @@
+$honk-trim-color: #eee;
+
+.honk
+{
+    background-color:rgba(0,0,0,.5);
+    position:fixed;
+    top:0px;
+    left:0px;
+    height:100%;
+    width:100%;
+    @include display(flex);
+    @include align-items(center);
+    @include justify-content(center);
+    z-index:9999999999;
+
+    &-button {
+        appearance: none;
+        background-color: $honk-trim-color;
+        border: 1px solid $honk-trim-color;
+        border-radius: 0;
+        width:75px;
+        margin:0px 10px;
+        color: darken($honk-trim-color, 50%);
+        cursor: pointer;
+        @include display(inline-flex);
+        @include justify-content(center);
+        @include align-items(center);
+        font-weight: 400;
+        padding: .4em 1em;
+        text-decoration: none;
+        @include transition(all .25s);
+        user-select: none;
+        white-space: nowrap;
+        box-sizing:content-box;
+        vertical-align:middle;
+        
+        &:hover,
+        &:focus {
+            background-color: shade($honk-trim-color, 20%);
+            border-color: shade($honk-trim-color, 20%);
+            color: darken($honk-trim-color, 70%);
+            outline-style: none;
+        }
+    }
+
+    .honk-popup{
+        width:80%;
+        max-width:500px;
+        @include display(flex);
+        @include flex-direction(column);
+        margin:auto;
+        max-height:90%;
+        box-shadow:0px 0px 15px 0px rgba(0,0,0,.5);
+        border-radius:3px;
+        background-color:#fff;
+
+        .honk-header {
+            @include border-top-radius(3px);
+            background-color:$honk-trim-color;
+            padding:10px 20px;
+            font-size:12px;
+            font-weight:bold;
+            text-transform:uppercase;
+        }
+
+        .honk-footer {
+            @include border-bottom-radius(3px);
+            padding:0 0 10px 0;
+            text-align:center;
+        }
+
+        .honk-content {
+            @include flex(1);
+            overflow:auto;
+            padding:30px;
+            background-color:#fff;
+        }
+    }    
+}
